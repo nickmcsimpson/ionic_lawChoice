@@ -1,6 +1,7 @@
-import { IonContent, IonHeader, IonButtons, IonPage, IonBackButton, IonTitle, IonToolbar, IonItem, IonList, IonItemDivider, IonAlert, IonLabel, IonInput, IonTextarea, IonFooter } from '@ionic/react';
+import { IonContent, IonPage, IonTitle, IonToolbar, IonItem, IonList, IonItemDivider, IonAlert, IonLabel, IonInput, IonTextarea, IonFooter } from '@ionic/react';
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import MyHeader from '../components/MyHeader';
 
 const Contact: React.FC = () => {
   // Previously only class based components could use state, but not the hooks allow this for functional components
@@ -20,14 +21,7 @@ const Contact: React.FC = () => {
   }
   return (
     <IonPage>
-      <IonHeader class="ion-no-boder">
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonTitle class="ion-text-center">Contact Us</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <MyHeader />
       <IonContent class="ion-padding">
         <IonAlert 
           isOpen={messageAlert}

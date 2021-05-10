@@ -1,8 +1,8 @@
-import { IonContent, IonPage, IonButton, IonIcon, IonList, IonItem, IonListHeader, IonLabel } from '@ionic/react';
+import { IonContent, IonPage, IonIcon, IonList, IonItem, IonListHeader, IonLabel } from '@ionic/react';
 import React, {useState} from 'react';
 import MyHeader from '../components/MyHeader';
 import FaqListing from './FaqDB';
-import {arrowBackOutline, informationCircleOutline} from 'ionicons/icons';
+import {informationCircleOutline} from 'ionicons/icons';
 
 const Faq: React.FC = () => {
     const [faqs] = useState<Array<any>>(FaqListing);
@@ -17,10 +17,6 @@ const Faq: React.FC = () => {
         <IonPage>
             <MyHeader />
             <IonContent>
-                <IonButton color="light" routerLink="/home">
-                    <IonIcon slot="start" icon={arrowBackOutline} />
-                        Back
-                </IonButton>
                 <IonList>
                     <IonListHeader>
                         <h1>FAQ</h1>
