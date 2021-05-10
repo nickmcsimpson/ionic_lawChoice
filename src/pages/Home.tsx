@@ -1,16 +1,16 @@
-import { IonContent, IonPage, IonImg, useIonViewDidEnter, IonGrid, IonRow, IonCol } from '@ionic/react';
+import { IonContent, IonPage, IonImg, IonGrid, IonRow, IonCol } from '@ionic/react';
 // import ExploreContainer from '../components/ExploreContainer';
 import MyHeader from '../components/MyHeader';
 import './Home.css';
-import {Plugins} from '@capacitor/core';
+// import {Plugins} from '@capacitor/core';
 
 const Home: React.FC = () => {
-  const {Geolocation} = Plugins;
-  const coordinates = Geolocation.getCurrentPosition();
-
-  useIonViewDidEnter(() => {
-    console.log('location', coordinates);
-  })
+  // Needs APIKey from Google to run on Electron app
+  // const {Geolocation} = Plugins;
+  // const coordinates = Geolocation.getCurrentPosition();
+  // useIonViewDidEnter(() => {
+  //   console.log('location', coordinates);
+  // })
 
   return (
     <IonPage>

@@ -1,6 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonMenu, IonContent, IonList, IonItem, IonLabel, IonButton } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -32,7 +32,7 @@ import './theme/variables.css';
 
 const App: React.FC = () => (
   <IonApp>
-    <IonMenu side="start" menuId="first" contentId="main">
+    {/* <IonMenu side="start" menuId="first" contentId="main">
       <IonContent>
         <IonList>
           <IonItem button routerLink="/home">
@@ -67,9 +67,10 @@ const App: React.FC = () => (
           </IonItem>
         </IonList>
       </IonContent>
-    </IonMenu>
+    </IonMenu> */}
 
-    <IonReactRouter>
+{/* Use Hash router only for Electron App */}
+    <IonReactRouter> 
       <IonRouterOutlet id="main">
         <Route path="/blogpost/:id" component={BlogDetail} exact={true} />
         <Route path="/blog" component={Blog} exact={true} />

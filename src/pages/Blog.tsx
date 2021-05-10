@@ -1,31 +1,38 @@
-import { IonContent, IonPage, IonList, IonItem, IonAvatar, IonLabel, IonImg, IonListHeader } from '@ionic/react';
+import { IonContent, IonPage, IonItem, IonLabel, IonImg,
+    IonGrid, IonRow, IonCol } from '@ionic/react';
 import React, {useState} from 'react';
 import MyHeader from '../components/MyHeader';
 import BlogListing from './BlogDB';
+import './Blog.css';
 
 const Blog: React.FC = () => {
     const [posts] = useState<Array<any>>(BlogListing);
     const blogposts = posts.map((post) =>
-        <IonItem key={post.id} button routerLink={post.path}>
-            <IonAvatar slot="start">
-                <IonImg src={post.pic} />
-            </IonAvatar>
-            <IonLabel>
-                <h2>{post.title}</h2>
-            </IonLabel>
-        </IonItem>    
+        <IonCol size="6">
+            <IonItem key={post.id} button routerLink={post.path} lines="none">
+                    <IonImg class="blogImage" src={post.pic} />
+            </IonItem>  
+            <IonItem lines="none">
+                <IonLabel>
+                    <h2>{post.title}</h2>
+                </IonLabel>
+            </IonItem>  
+           
+        </IonCol>
+          
     );
 
     return(
         <IonPage>
-            <MyHeader />
+            
             <IonContent>
-                <IonList>
-                    <IonListHeader>
-                        <h1>Blog</h1>
-                    </IonListHeader>
-                    {blogposts}
-                </IonList>
+                <IonGrid fixed={true}>
+                    <MyHeader />
+                    <IonRow class="ion-padding-top">
+                        {blogposts}
+                    </IonRow>
+                </IonGrid>
+                
             </IonContent>
         </IonPage>
     );
