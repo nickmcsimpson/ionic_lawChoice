@@ -1,4 +1,5 @@
-import { IonContent, IonPage, IonTitle, IonToolbar, IonItem, IonList, IonItemDivider, IonAlert, IonLabel, IonInput, IonTextarea, IonFooter } from '@ionic/react';
+import { IonContent, IonPage, IonTitle, IonToolbar, IonItem,
+  IonAlert, IonLabel, IonInput, IonTextarea, IonFooter, IonGrid, IonRow, IonCol } from '@ionic/react';
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import MyHeader from '../components/MyHeader';
@@ -21,7 +22,6 @@ const Contact: React.FC = () => {
   }
   return (
     <IonPage>
-      <MyHeader />
       <IonContent class="ion-padding">
         <IonAlert 
           isOpen={messageAlert}
@@ -31,38 +31,50 @@ const Contact: React.FC = () => {
           message={'Name, Email, or Message cannot be empty!'}
           buttons={['Ok']}
         />
-        <IonList>
-          <IonItem>
-            <IonInput value={name} placeholder="Name"
-              onIonChange={e => setName(e.detail.value!)}>
-            </IonInput>
-          </IonItem>
-          <IonItemDivider></IonItemDivider>
-          <IonItem>
-            <IonInput value={email} placeholder="Email"
-              onIonChange={e => setEmail(e.detail.value!)}>
-            </IonInput>
-          </IonItem>
-          <IonItemDivider></IonItemDivider>
-          <IonItem>
-            <IonTextarea rows={15} placeholder="Enter message here" value={message}
-              onIonChange={e => setMessage(e.detail.value!)}>
-            </IonTextarea>
-          </IonItem>
-          <IonItemDivider></IonItemDivider>
-          <IonItem button onClick={e => {sendMessage()}}>
-            <IonLabel class="ion-text-center">
-              Send Message
-            </IonLabel>
-          </IonItem>
-        </IonList>
+        <IonGrid fixed={true}>
+          <MyHeader />
+          <IonRow>
+            <IonCol>
+              <IonInput value={name} placeholder="Name"
+                onIonChange={e => setName(e.detail.value!)}>
+              </IonInput>
+            </IonCol>
+            <IonCol>
+              <IonInput value={email} placeholder="Email"
+                onIonChange={e => setEmail(e.detail.value!)}>
+              </IonInput>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol>
+              <IonTextarea rows={15} placeholder="Enter message here" value={message}
+                onIonChange={e => setMessage(e.detail.value!)}>
+              </IonTextarea>
+            </IonCol>            
+          </IonRow>
+
+          <IonRow class="ion-justify-content-center">
+            <IonItem button onClick={e => {sendMessage()}}>
+              <IonLabel class="ion-text-center">
+                Send Message
+              </IonLabel>
+            </IonItem>
+          </IonRow>
+
+          <IonRow>
+            <IonFooter>
+              <IonToolbar>
+                  <IonTitle class="ion-text-center">Created by Dream-Makers</IonTitle>
+                  <IonTitle class="ion-text-center" size="small">2021 A New Year</IonTitle>
+                </IonToolbar>
+              </IonFooter>
+          </IonRow>
+          
+        </IonGrid>
+
       </IonContent>
-      <IonFooter>
-        <IonToolbar>
-          <IonTitle class="ion-text-center">Created by Dream-Makers</IonTitle>
-          <IonTitle class="ion-text-center" size="small">2021 A New Year</IonTitle>
-        </IonToolbar>
-      </IonFooter>
+
     </IonPage>
   );
 };
